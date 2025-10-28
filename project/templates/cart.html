@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+Shopping Cart | Monogatari
+{% if cart_items %} {{ cart_items|length }} items {% else %} 0 items {% endif %}
+{% if cart_items %} {% for item in cart_items %}
+{{ item.product.name }}
+{{ item.product.name }}
+{{ item.product.category|title }}
+{% csrf_token %} 
+{{ item.quantity }}
+{% csrf_token %} 
+₹{{ item.product.price }}
+{% csrf_token %} 
+{% endfor %} {% else %}
+Your cart is empty.
+
+{% endif %}
